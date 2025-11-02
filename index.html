@@ -13,10 +13,20 @@
             padding: 0;
         }
 
+        :root{
+            --bg: #0f1113;            /* main page background */
+            --panel: #141618;         /* cards and sections */
+            --muted: #bfc5c8;         /* muted text */
+            --accent: #90caf9;        /* accent color */
+            --cta-bg: #ffffff;        /* CTA (light) */
+            --cta-color: #0f1113;
+            --glass: rgba(255,255,255,0.04);
+        }
+
         body {
             font-family: "Poppins", sans-serif;
-            background-color: #0b0d10;
-            color: #e6e6e6;
+            background-color: var(--bg);
+            color: #e8e8e8;
             line-height: 1.6;
             scroll-behavior: smooth;
         }
@@ -28,34 +38,35 @@
         }
 
         a {
-            color: #00b4d8;
+            color: var(--accent);
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: color 0.22s ease;
         }
 
         a:hover {
-            color: #90e0ef;
+            color: #cfeaff;
         }
 
         h1, h2, h3, h4 {
             color: #ffffff;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.4px;
         }
 
         h1 { font-size: 2.5rem; }
         h2 { font-size: 1.9rem; margin-bottom: 12px; }
-        p  { font-size: 1rem; margin-top: 8px; color: #b0b0b0; }
+        p  { font-size: 1rem; margin-top: 8px; color: var(--muted); }
 
         /* ------------------- LAYOUT HELPERS ------------------- */
         .container {
-            width: 90%;
+            width: 92%;
             max-width: 1200px;
             margin: auto;
         }
 
         .section {
             padding: 80px 0;
-            border-bottom: 1px solid #1b1e23;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+            background: transparent;
         }
 
         /* ------------------- HEADER ------------------- */
@@ -63,9 +74,9 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(15, 17, 20, 0.9);
+            background: rgba(20, 22, 24, 0.75);
             backdrop-filter: blur(6px);
-            border-bottom: 1px solid #1c1f25;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
             z-index: 100;
         }
 
@@ -73,133 +84,135 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 16px 5%;
+            padding: 14px 5%;
         }
 
         .logo {
             font-size: 1.4rem;
-            font-weight: 600;
-            color: #00b4d8;
+            font-weight: 700;
+            color: var(--accent);
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
         .nav-links a {
-            margin-left: 24px;
-            color: #e6e6e6;
+            margin-left: 22px;
+            color: #eaeaea;
             font-weight: 500;
-            transition: color 0.3s;
+            transition: color 0.2s;
         }
 
         .nav-links a:hover {
-            color: #00b4d8;
+            color: var(--accent);
         }
 
         /* ------------------- HERO ------------------- */
         .hero {
             padding-top: 120px;
-            text-align: center;
+            padding-bottom: 40px;
+        }
+
+        .hero-flex {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+        }
+
+        .hero-content {
+            flex: 1;
+            min-width: 40%;
+            color: #f6f6f6;
         }
 
         .hero h1 span {
-            color: #00b4d8;
+            color: var(--accent);
         }
 
         .hero p {
-            max-width: 700px;
-            margin: 16px auto;
-            font-size: 1.1rem;
-            color: #c0c0c0;
+            max-width: 640px;
+            margin: 12px 0 16px;
+            font-size: 1.05rem;
+            color: var(--muted);
         }
 
         .cta-btn {
             display: inline-block;
-            background: #00b4d8;
-            color: #0b0d10;
-            font-weight: 600;
-            padding: 12px 28px;
-            border-radius: 50px;
-            margin-top: 24px;
-            transition: background 0.3s ease;
+            background: var(--cta-bg);
+            color: var(--cta-color);
+            font-weight: 700;
+            padding: 12px 26px;
+            border-radius: 999px;
+            margin-top: 12px;
+            transition: background 0.2s ease, transform 0.12s ease;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.45);
         }
 
-        .cta-btn:hover {
-            background: #90e0ef;
-        }
+        .cta-btn:hover { transform: translateY(-3px); background: var(--accent); color: #011; }
 
         /* ------------------- FEATURES ------------------- */
         .features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 32px;
-            margin-top: 40px;
+            gap: 28px;
+            margin-top: 28px;
         }
 
         .feature-card {
-            background: #111318;
-            padding: 28px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));
+            padding: 22px;
             border-radius: 14px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid #1d1f25;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            border: 1px solid rgba(255,255,255,0.03);
         }
 
         .feature-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 10px 30px rgba(0, 180, 216, 0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 14px 40px rgba(0,0,0,0.6);
         }
 
-        .feature-card h3 {
-            color: #00b4d8;
-            margin-bottom: 8px;
-        }
+        .feature-card h3 { color: var(--accent); margin-bottom: 8px; }
 
         /* ------------------- INDUSTRIES ------------------- */
-        .industries {
-            text-align: center;
-        }
+        .industries { text-align: center; }
 
         .industries h2 span {
-            background: #00b4d8;
-            color: #0b0d10;
+            background: var(--accent);
+            color: #071018;
             padding: 4px 10px;
             border-radius: 6px;
         }
 
         .industry-grid {
             display: grid;
-            /* Changed to 3 columns, always */
             grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            margin-top: 40px;
-            /* Added to center the grid if it doesn't fill the container width */
+            gap: 22px;
+            margin-top: 28px;
             justify-content: center;
         }
 
         .industry-card {
-            background: #111318;
-            border-radius: 14px;
+            background: var(--panel);
+            border-radius: 12px;
             overflow: hidden;
-            border: 1px solid #1d1f25;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            /* Ensures cards maintain aspect ratio on smaller screens if grid allows wrapping */
+            border: 1px solid rgba(255,255,255,0.03);
+            transition: transform 0.22s ease, box-shadow 0.22s ease;
             display: flex;
             flex-direction: column;
         }
 
         .industry-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 180, 216, 0.15);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.5);
         }
 
         .industry-video-wrapper {
             position: relative;
             width: 100%;
-            /* For 16:9 aspect ratio */
-            padding-bottom: 56.25%; /* 9 / 16 = 0.5625 */
+            padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
-            background-color: #000; /* Fallback background for video loading */
+            background-color: #000;
         }
 
         .industry-video {
@@ -214,26 +227,22 @@
 
         .industry-card h4 {
             margin: 14px 16px 6px;
-            color: #00b4d8;
+            color: var(--accent);
         }
 
         .industry-card p {
             margin: 0 16px 18px;
             font-size: 0.95rem;
-            color: #b0b0b0;
-            /* Ensure text content doesn't push card out of alignment */
+            color: var(--muted);
             flex-grow: 1;
         }
 
         /* ------------------- VIDEO SECTION ------------------- */
-        /* This section appeared unused in your HTML, keeping for reference */
-        .video-section {
-            text-align: center;
-        }
+        .video-section { text-align: center; }
 
         .video-section video {
             width: 100%;
-            border: 1px solid #22252b;
+            border: 1px solid rgba(255,255,255,0.03);
             margin-top: 20px;
         }
 
@@ -245,62 +254,35 @@
             margin-top: 30px;
         }
 
-        .two-col > div {
-            flex: 1;
-            min-width: 280px;
-        }
+        .two-col > div { flex: 1; min-width: 280px; }
 
-        ul {
-            list-style: none;
-            margin-top: 8px;
-        }
-
-        ul li {
-            margin: 6px 0;
-            color: #b0b0b0;
-        }
+        ul { list-style: none; margin-top: 8px; }
+        ul li { margin: 6px 0; color: var(--muted); }
 
         /* ------------------- FAQ ------------------- */
         details {
-            background: #111318;
+            background: var(--panel);
             margin-top: 10px;
             padding: 14px 18px;
             border-radius: 10px;
-            border: 1px solid #1e2026;
-            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.03);
+            transition: all 0.25s ease;
         }
 
-        details:hover {
-            border-color: #00b4d8;
-        }
+        details:hover { border-color: var(--accent); }
 
-        summary {
-            cursor: pointer;
-            font-weight: 500;
-            color: #e6e6e6;
-        }
-
-        details p {
-            margin-top: 10px;
-            color: #b0b0b0;
-            font-size: 0.95rem;
-        }
+        summary { cursor: pointer; font-weight: 600; color: #f2f2f2; }
+        details p { margin-top: 10px; color: var(--muted); font-size: 0.95rem; }
 
         /* ------------------- CTA SECTION ------------------- */
-        .final-cta {
-            text-align: center;
-            margin-top: 30px;
-        }
-
-        .final-cta .cta-btn {
-            margin-right: 10px;
-        }
+        .final-cta { text-align: center; margin-top: 30px; }
+        .final-cta .cta-btn { margin-right: 10px; }
 
         /* ------------------- FOOTER ------------------- */
         footer {
-            background: #0a0b0e;
+            background: #0b0c0d;
             padding: 40px 0;
-            border-top: 1px solid #1b1e23;
+            border-top: 1px solid rgba(255,255,255,0.02);
         }
 
         .footer-grid {
@@ -309,122 +291,111 @@
             gap: 20px;
         }
 
-        .footer-grid strong {
-            display: block;
-            color: #ffffff;
-            margin-bottom: 8px;
+        .footer-grid strong { display:block; color: #fff; margin-bottom: 8px; }
+        footer p, footer a { font-size: 0.9rem; color: var(--muted); }
+        footer a:hover { color: var(--accent); }
+
+        /* ------------------- MODALS ------------------- */
+        .modal {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(2,6,10,0.6);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.36s ease, visibility 0.36s ease;
+            z-index: 1100;
+        }
+        .modal.active { opacity: 1; visibility: visible; }
+
+        .modal-panel {
+            width: 96%;
+            max-width: 520px;
+            background: linear-gradient(180deg,#ffffff 0%, #f3f6f7 100%);
+            color: #111;
+            border-radius: 12px;
+            padding: 22px;
+            box-shadow: 0 18px 60px rgba(2,6,10,0.6);
+            transform: translateY(-28px) scale(0.99);
+            transition: transform 0.34s cubic-bezier(.2,.9,.3,1);
+        }
+        .modal.active .modal-panel { transform: translateY(0) scale(1); }
+
+        .modal-close {
+            position: absolute;
+            top: 18px;
+            right: 22px;
+            font-size: 20px;
+            color: #222;
+            cursor: pointer;
+            background: transparent;
+            border: none;
         }
 
-        footer p, footer a {
-            font-size: 0.9rem;
-            color: #b0b0b0;
+        .modal h2 { margin-bottom: 8px; color: #0d1112; }
+
+        /* Form */
+        form { display:flex; flex-direction: column; gap:12px; }
+        input[type="text"], input[type="email"], textarea {
+            width:100%;
+            padding:10px 12px;
+            border-radius:8px;
+            border:1px solid rgba(0,0,0,0.08);
+            font-size: 1rem;
+            background: #fff;
+            color: #111;
+        }
+        textarea { resize: vertical; min-height: 96px; }
+        .form-row { display:flex; gap:10px; }
+        .btn-primary {
+            background: var(--accent);
+            color: #041018;
+            padding: 10px 14px;
+            border-radius: 8px;
+            border: none;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(14,30,50,0.12);
+        }
+        .btn-secondary {
+            background: transparent;
+            color: #111;
+            border: 1px solid rgba(0,0,0,0.06);
+            padding: 10px 14px;
+            border-radius: 8px;
+            cursor: pointer;
         }
 
-        footer a:hover {
-            color: #00b4d8;
+        .meta-muted { color: var(--muted); font-size: 0.95rem; }
+
+        /* success message box inside modal (after ajax) */
+        .success-box {
+            display: none;
+            background: #e8fbff;
+            color: #022434;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid rgba(0,0,0,0.06);
+            margin-top: 8px;
+        }
+        .success-box.show { display:block; }
+
+        /* small screens */
+        @media (max-width: 992px) {
+            .industry-grid { grid-template-columns: repeat(2, 1fr); }
+            .hero-flex { flex-direction: column; text-align: center; }
+            .hero-video-wrapper { padding-bottom: 56.25%; margin-bottom: 24px; }
         }
 
-        /* ------------------- RESPONSIVE ------------------- */
-        @media (max-width: 992px) { /* Adjust breakpoint for 3-column to 2-column */
-            .industry-grid {
-                grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
-            }
+        @media (max-width: 600px) {
+            nav { flex-direction: column; gap: 10px; padding: 12px 4%; }
+            .nav-links { margin-top: 6px; }
+            .industry-grid { grid-template-columns: 1fr; }
+            .modal-panel { padding: 16px; border-radius: 10px; }
         }
 
-        @media (max-width: 600px) { /* Adjust breakpoint for 2-column to 1-column */
-            nav {
-                flex-direction: column;
-            }
-            .nav-links {
-                margin-top: 10px;
-            }
-            .hero h1 {
-                font-size: 2rem;
-            }
-            .industry-grid {
-                grid-template-columns: 1fr; /* 1 column on small screens */
-            }
-        }
-/* ------------------- HERO ------------------- */
-.hero {
-    padding-top: 120px;
-    padding-bottom: 40px; /* Added some bottom padding */
-    text-align: left; /* Aligned text left within its column */
-}
-
-/* Two-column layout for the Hero */
-.hero-flex {
-    display: flex;
-    align-items: center; /* Vertically center content */
-    gap: 40px;
-}
-
-.hero-content {
-    flex: 1; /* Allows content to take up equal space */
-    min-width: 40%;
-}
-
-.hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: 12px;
-}
-
-.hero h1 span {
-    color: #00b4d8;
-}
-
-.hero p {
-    max-width: 600px; /* Slightly reduced max width for better flow next to video */
-    margin: 16px 0; /* Adjusted margin to be 0 on sides */
-    font-size: 1.1rem;
-    color: #c0c0c0;
-}
-
-/* Video Wrapper for 16:9 Aspect Ratio */
-.hero-video-wrapper {
-    flex: 1; /* Allows video to take up equal space */
-    position: relative;
-    width: 100%;
-    /* 16:9 aspect ratio (9 / 16 = 0.5625) */
-    padding-bottom: 30%; /* Set height for visual balance on desktop */
-    height: 0;
-    overflow: hidden;
-    border-radius: 10px;
-    min-width: 50%;
-    border: 1px solid #22252b;
-    background-color: #000;
-}
-
-.hero-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* Responsive adjustments for the hero section */
-@media (max-width: 992px) {
-    .hero-flex {
-        flex-direction: column; /* Stack columns on smaller screens */
-        text-align: center;
-    }
-    .hero-content {
-        order: 2; /* Put text below video on stack */
-    }
-    .hero-video-wrapper {
-        order: 1; /* Put video above text on stack */
-        padding-bottom: 56.25%; /* Use standard 16:9 padding when stacked */
-        margin-bottom: 30px;
-    }
-    .hero p {
-        margin: 16px auto; /* Center text when stacked */
-    }
-}
-    .full-width-section {
-        background-color: #0d0f12; /* Slightly different dark background */
-    }
     </style>
 </head>
 <body>
@@ -436,7 +407,8 @@
                 <a href="#industries">Industries</a>
                 <a href="#roi">ROI</a>
                 <a href="#faq">FAQ</a>
-                <a href="#demo">Contact</a>
+                <!-- Contact now opens modal (not the anchor) -->
+                <a href="#" id="navContactBtn">Contact</a>
             </div>
         </nav>
     </header>
@@ -446,13 +418,12 @@
         <div class="hero-content">
             <h1>Empowering <span>Intelligent Operations</span> with Consultheon</h1>
             <p>Consultheon delivers next-generation industrial and video analytics solutions — transforming cameras and sensors into real-time intelligence tools for safety, efficiency, and performance.</p>
-            <a href="#demo" class="cta-btn">Book a Demo</a>
+            <a href="#" class="cta-btn" id="openDemoBtn">Book a Demo</a>
+            <a href="#" class="cta-btn" id="openContactBtn" style="background:transparent; color:var(--accent); border:1px solid rgba(255,255,255,0.03;);">Contact Us</a>
         </div>
-        
-        <div class="hero-video-wrapper">
-            <video class="hero-video" src="videos/hero-vision.mp4" muted loop playsinline autoplay preload="metadata">
-                Your browser does not support the video tag.
-            </video>
+
+        <div class="hero-video-wrapper" style="flex:1; min-width:45%;">
+            <video class="hero-video" src="videos/hero-vision.mp4" muted loop playsinline autoplay preload="metadata"></video>
         </div>
     </div>
 </section>
@@ -462,13 +433,13 @@
     <p>Many organizations have hundreds — even thousands — of cameras that record events but rarely turn footage into meaningful, timely action. Manual review is slow, alerts are noisy, and critical incidents are missed.</p>
 
     <div class="two-col" style="margin-top: 50px;">
-        <div style="text-align: center; border-right: 1px solid #1b1e23; padding-right: 20px;">
-            <h1 style="color: #ff5757;">70%+</h1>
-            <p style="font-size: 1.1rem; color: #b0b0b0; margin-top: 4px;">of recorded incidents are never reviewed in time to act</p>
+        <div style="text-align: center; border-right: 1px solid rgba(255,255,255,0.03); padding-right: 20px;">
+            <h1 style="color: #ff7b7b;">70%+</h1>
+            <p style="font-size: 1.1rem; color: var(--muted); margin-top: 4px;">of recorded incidents are never reviewed in time to act</p>
         </div>
         <div style="text-align: center; padding-left: 20px;">
-            <h1 style="color: #ff5757;">40%+</h1>
-            <p style="font-size: 1.1rem; color: #b0b0b0; margin-top: 4px;">increase in operational cost due to inefficient monitoring</p>
+            <h1 style="color: #ff7b7b;">40%+</h1>
+            <p style="font-size: 1.1rem; color: var(--muted); margin-top: 4px;">increase in operational cost due to inefficient monitoring</p>
         </div>
     </div>
 
@@ -476,18 +447,18 @@
     <div class="two-col" style="margin-top: 20px;">
         <div>
             <h4>Traditional</h4>
-            <ul style="color: #ff5757;">
-                <li style="color: #ff5757;">Manual review</li>
-                <li style="color: #ff5757;">High false positives</li>
-                <li style="color: #ff5757;">Slow incident response</li>
+            <ul style="color: #ff7b7b;">
+                <li style="color: #ff7b7b;">Manual review</li>
+                <li style="color: #ff7b7b;">High false positives</li>
+                <li style="color: #ff7b7b;">Slow incident response</li>
             </ul>
         </div>
         <div>
             <h4>AI-powered</h4>
-            <ul style="color: #00b4d8;">
-                <li style="color: #00b4d8;">**Real-time detection**</li>
-                <li style="color: #00b4d8;">**Context-aware alerts**</li>
-                <li style="color: #00b4d8;">**Actionable dashboards**</li>
+            <ul style="color: var(--accent);">
+                <li style="color: var(--accent);">Real-time detection</li>
+                <li style="color: var(--accent);">Context-aware alerts</li>
+                <li style="color: var(--accent);">Actionable dashboards</li>
             </ul>
         </div>
     </div>
@@ -521,27 +492,27 @@
     </div>
 </section>
 
-    <section id="solution" class="section container">
-        <h2>Our Intelligent Solutions</h2>
-        <div class="features">
-            <div class="feature-card">
-                <h3>Safety Detection</h3>
-                <p>Monitor PPE compliance, hazardous zones, and accident risks through real-time computer vision analytics.</p>
-            </div>
-            <div class="feature-card">
-                <h3>Operational Insights</h3>
-                <p>Track equipment usage, idle time, and workflow efficiency using intelligent pattern recognition.</p>
-            </div>
-            <div class="feature-card">
-                <h3>Workforce Analytics</h3>
-                <p>Understand workforce movement, task engagement, and productivity with human-centric AI insights.</p>
-            </div>
-            <div class="feature-card">
-                <h3>Predictive Maintenance</h3>
-                <p>Use visual cues and sensor data to detect early anomalies and prevent costly breakdowns.</p>
-            </div>
+<section id="solution" class="section container">
+    <h2>Our Intelligent Solutions</h2>
+    <div class="features">
+        <div class="feature-card">
+            <h3>Safety Detection</h3>
+            <p>Monitor PPE compliance, hazardous zones, and accident risks through real-time computer vision analytics.</p>
         </div>
-    </section>
+        <div class="feature-card">
+            <h3>Operational Insights</h3>
+            <p>Track equipment usage, idle time, and workflow efficiency using intelligent pattern recognition.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Workforce Analytics</h3>
+            <p>Understand workforce movement, task engagement, and productivity with human-centric AI insights.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Predictive Maintenance</h3>
+            <p>Use visual cues and sensor data to detect early anomalies and prevent costly breakdowns.</p>
+        </div>
+    </div>
+</section>
 
 <section id="industries" class="section industries full-width-section">
     <div class="container">
@@ -594,102 +565,296 @@
         </div>
     </div>
 </section>
-    <section id="roi" class="section container">
-        <h2>Proven ROI and Impact</h2>
-        <p>Consultheon delivers measurable value from the start — optimizing processes, enhancing safety, and cutting costs.</p>
-        <div class="two-col">
-            <div>
-                <h4>Operational Gains</h4>
-                <ul>
-                    <li>40% faster incident response</li>
-                    <li>Up to 25% reduction in downtime</li>
-                    <li>Enhanced workforce productivity</li>
-                </ul>
-            </div>
-            <div>
-                <h4>Financial Impact</h4>
-                <ul>
-                    <li>Lower operational overheads</li>
-                    <li>Reduced insurance & compliance costs</li>
-                    <li>Faster ROI through automation</li>
-                    <li>Lower operational overheads</li>
-                </ul>
-            </div>
+
+<section id="roi" class="section container">
+    <h2>Proven ROI and Impact</h2>
+    <p>Consultheon delivers measurable value from the start — optimizing processes, enhancing safety, and cutting costs.</p>
+    <div class="two-col">
+        <div>
+            <h4>Operational Gains</h4>
+            <ul>
+                <li>40% faster incident response</li>
+                <li>Up to 25% reduction in downtime</li>
+                <li>Enhanced workforce productivity</li>
+            </ul>
         </div>
-    </section>
-
-    <section id="faq" class="section container">
-        <h2>Frequently Asked Questions</h2>
-        <details>
-            <summary>Can Consultheon integrate with my existing camera system?</summary>
-            <p>Yes — our platform supports most IP and analog cameras via edge or cloud adapters.</p>
-        </details>
-        <details>
-            <summary>How secure is the system?</summary>
-            <p>We use end-to-end encryption, local edge processing, and strict data privacy protocols.</p>
-        </details>
-        <details>
-            <summary>Do you offer pilot trials?</summary>
-            <p>Yes, we provide proof-of-concept and pilot programs to validate ROI before full deployment.</p>
-        </details>
-    </section>
-
-    <section id="demo" class="section container final-cta">
-        <h2>Transform Your Operations with Consultheon</h2>
-        <p>Book a personalized demo and see how our AI-driven solutions can enhance your industry.</p>
-        <a href="#" class="cta-btn">Book a Demo</a>
-        <a href="#" class="cta-btn" style="background:#1a1d22; color:#00b4d8;">Contact Us</a>
-    </section>
-
-    <footer>
-        <div class="container footer-grid">
-            <div>
-                <strong>Consultheon</strong>
-                <p>© 2025 Consultheon. All rights reserved.</p>
-            </div>
-            <div>
-                <strong>Company</strong>
-                <a href="#solution">About</a><br>
-                <a href="#industries">Industries</a>
-            </div>
-            <div>
-                <strong>Support</strong>
-                <a href="#faq">FAQ</a><br>
-                <a href="#demo">Contact</a>
-            </div>
-            <div>
-                <strong>Connect</strong>
-                <a href="#">LinkedIn</a><br>
-                <a href="#">Twitter</a>
-            </div>
+        <div>
+            <h4>Financial Impact</h4>
+            <ul>
+                <li>Lower operational overheads</li>
+                <li>Reduced insurance & compliance costs</li>
+                <li>Faster ROI through automation</li>
+            </ul>
         </div>
-    </footer>
+    </div>
+</section>
 
-    <script>
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+<section id="faq" class="section container">
+    <h2>Frequently Asked Questions</h2>
+    <details>
+        <summary>Can Consultheon integrate with my existing camera system?</summary>
+        <p>Yes — our platform supports most IP and analog cameras via edge or cloud adapters.</p>
+    </details>
+    <details>
+        <summary>How secure is the system?</summary>
+        <p>We use end-to-end encryption, local edge processing, and strict data privacy protocols.</p>
+    </details>
+    <details>
+        <summary>Do you offer pilot trials?</summary>
+        <p>Yes, we provide proof-of-concept and pilot programs to validate ROI before full deployment.</p>
+    </details>
+</section>
+
+<section id="demo" class="section container final-cta">
+    <h2>Transform Your Operations with Consultheon</h2>
+    <p>Book a personalized demo and see how our AI-driven solutions can enhance your industry.</p>
+    <a href="#" class="cta-btn" id="demoCTA">Book a Demo</a>
+    <a href="#" class="cta-btn" id="demoContactCTA" style="background:transparent; color:var(--accent); border:1px solid rgba(255,255,255,0.03);">Contact Us</a>
+</section>
+
+<footer>
+    <div class="container footer-grid">
+        <div>
+            <strong>Consultheon</strong>
+            <p>© 2025 Consultheon. All rights reserved.</p>
+        </div>
+        <div>
+            <strong>Company</strong>
+            <a href="#solution">About</a><br>
+            <a href="#industries">Industries</a>
+        </div>
+        <div>
+            <strong>Support</strong>
+            <a href="#faq">FAQ</a><br>
+            <a href="#demo">Contact</a>
+        </div>
+        <div>
+            <strong>Connect</strong>
+            <a href="#">LinkedIn</a><br>
+            <a href="#">Twitter</a>
+        </div>
+    </div>
+</footer>
+
+<!-- CONTACT MODAL -->
+<div class="modal" id="contactModal" aria-hidden="true" role="dialog" aria-labelledby="contactModalTitle">
+    <div class="modal-panel" role="document" style="position:relative;">
+        <button class="modal-close" data-close="contactModal" aria-label="Close contact modal">&times;</button>
+        <h2 id="contactModalTitle">Contact Us</h2>
+        <p class="meta-muted">Email us to start the conversation:</p>
+        <p style="margin-top:8px;"><strong>info@consultheon.com</strong></p>
+
+        <div style="margin-top:12px;">
+            <p><strong>Manoviraj</strong> <span class="meta-muted">(Sales & Strategy)</span><br>📞 +91 98185 97797</p>
+            <p><strong>Asif</strong> <span class="meta-muted">(Technical Lead)</span><br>📞 +91 72609 48737</p>
+        </div>
+
+        <div style="margin-top:18px; display:flex; gap:8px; justify-content:flex-end;">
+            <button class="btn-secondary" data-close="contactModal">Close</button>
+        </div>
+    </div>
+</div>
+
+<!-- BOOK DEMO MODAL -->
+<div class="modal" id="demoModal" aria-hidden="true" role="dialog" aria-labelledby="demoModalTitle">
+    <div class="modal-panel" role="document" style="position:relative;">
+        <button class="modal-close" data-close="demoModal" aria-label="Close demo modal">&times;</button>
+        <h2 id="demoModalTitle">Book a Demo</h2>
+        <p class="meta-muted">Fill in the details and we'll get back to you.</p>
+
+        <!-- The form posts to your server-side PHP. JS will intercept and POST via fetch for in-page confirmation. -->
+        <form id="demoForm" action="submit_demo.php" method="POST" novalidate>
+            <input type="text" name="name" id="name" placeholder="Your Name" required>
+            <input type="email" name="email" id="email" placeholder="Your Email" required>
+            <input type="text" name="company" id="company" placeholder="Company Name (optional)">
+            <textarea name="message" id="message" placeholder="Tell us about your requirements (optional)"></textarea>
+
+            <div style="display:flex; gap:10px; margin-top:6px;">
+                <button type="submit" class="btn-primary">Submit</button>
+                <button type="button" class="btn-secondary" data-close="demoModal">Cancel</button>
+            </div>
+
+            <div id="demoSuccess" class="success-box" role="status" aria-live="polite"></div>
+        </form>
+    </div>
+</div>
+
+<script>
+    // Smooth scroll for internal anchors (preserve existing behavior)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            // prevent default only for anchors that link to internal sections and not modal triggers
+            const href = this.getAttribute('href');
+            if (href && href.length > 1 && document.querySelector(href)) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+
+    // Autoplay/pause videos in industry section when visible
+    const videos = document.querySelectorAll('.industry-video');
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            const video = entry.target;
+            if (entry.isIntersecting) {
+                video.play().catch(()=>{/* autoplay blocked */});
+            } else {
+                try { video.pause(); } catch(e){}
+            }
+        });
+    }, { threshold: 0.5 });
+    videos.forEach(v => observer.observe(v));
+
+    // Modal utilities
+    function openModal(id) {
+        const node = document.getElementById(id);
+        if (!node) return;
+        node.classList.add('active');
+        node.setAttribute('aria-hidden','false');
+        // trap focus optionally could be added; keep simple
+        document.body.style.overflow = 'hidden';
+    }
+    function closeModal(id) {
+        const node = document.getElementById(id);
+        if (!node) return;
+        node.classList.remove('active');
+        node.setAttribute('aria-hidden','true');
+        document.body.style.overflow = '';
+    }
+
+    // Wire buttons that open modals
+    document.getElementById('openDemoBtn')?.addEventListener('click', e => { e.preventDefault(); openModal('demoModal'); });
+    document.getElementById('openContactBtn')?.addEventListener('click', e => { e.preventDefault(); openModal('contactModal'); });
+    document.getElementById('navContactBtn')?.addEventListener('click', e => { e.preventDefault(); openModal('contactModal'); });
+    document.getElementById('demoCTA')?.addEventListener('click', e => { e.preventDefault(); openModal('demoModal'); });
+    document.getElementById('demoContactCTA')?.addEventListener('click', e => { e.preventDefault(); openModal('contactModal'); });
+
+    // Close on overlay click or close buttons
+    document.querySelectorAll('.modal').forEach(modal => {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+                modal.setAttribute('aria-hidden','true');
+                document.body.style.overflow = '';
+            }
+        });
+    });
+
+    document.querySelectorAll('[data-close]').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const id = btn.getAttribute('data-close');
+            closeModal(id);
+        });
+    });
+
+    // Close on Esc
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            document.querySelectorAll('.modal.active').forEach(m => {
+                m.classList.remove('active');
+                m.setAttribute('aria-hidden','true');
+                document.body.style.overflow = '';
+            });
+        }
+    });
+
+    // AJAX submit for demo form (graceful fallback - normal POST if fetch fails or JS disabled)
+    (function(){
+        const form = document.getElementById('demoForm');
+        const successBox = document.getElementById('demoSuccess');
+
+        if (!form) return;
+
+        form.addEventListener('submit', function(e){
+            e.preventDefault();
+
+            const formData = new FormData(form);
+            // show loading state
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+
+            fetch(form.action, {
+                method: form.method || 'POST',
+                body: formData,
+                headers: {
+                    // no content-type header so browser sets multipart/form-data boundary
+                    'X-Requested-With': 'XMLHttpRequest'
+                },
+            })
+            .then(async res => {
+                // If PHP returns JSON, parse safely; else show generic success
+                let ok = res.ok;
+                let text = await res.text().catch(()=>'');
+                let message = 'Thank you — your request has been submitted. We will get back to you soon.';
+
+                // try to parse JSON if returned
+                try {
+                    const json = JSON.parse(text);
+                    if (json && json.message) message = json.message;
+                    if (json && json.status && json.status !== 'success') ok = false;
+                } catch (_) {
+                    // not JSON; keep default or use returned text if short
+                    if (text && text.length < 300) { message = text; }
+                }
+
+                if (ok) {
+                    successBox.textContent = message;
+                    successBox.classList.add('show');
+                    form.reset();
+                    // optionally hide modal after short delay
+                    setTimeout(()=> {
+                        // keep success visible for a moment then hide modal
+                        closeModal('demoModal');
+                        successBox.classList.remove('show');
+                        // Show a small floating confirmation (optional)
+                        showFloatingConfirmation(message);
+                    }, 1400);
+                } else {
+                    successBox.textContent = message || 'There was an error submitting the form. Please try again or email info@consultheon.com';
+                    successBox.classList.add('show');
+                }
+            })
+            .catch(err => {
+                console.error('Form submit error', err);
+                successBox.textContent = 'Network error. Please try again or email info@consultheon.com';
+                successBox.classList.add('show');
+            })
+            .finally(() => {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
             });
         });
 
-        // Autoplay videos in industry section when visible
-        const videos = document.querySelectorAll('.industry-video');
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                const video = entry.target;
-                if (entry.isIntersecting) {
-                    video.play();
-                } else {
-                    video.pause();
-                }
-            });
-        }, { threshold: 0.5 }); // Adjust threshold as needed for when video should start/stop
+        function showFloatingConfirmation(text) {
+            // create small toast
+            const toast = document.createElement('div');
+            toast.style.position = 'fixed';
+            toast.style.right = '18px';
+            toast.style.bottom = '18px';
+            toast.style.background = '#e8fbff';
+            toast.style.color = '#022434';
+            toast.style.padding = '12px 14px';
+            toast.style.borderRadius = '10px';
+            toast.style.boxShadow = '0 12px 30px rgba(0,0,0,0.25)';
+            toast.style.zIndex = 1300;
+            toast.style.fontWeight = 600;
+            toast.textContent = text;
+            document.body.appendChild(toast);
+            setTimeout(()=> {
+                toast.style.transition = 'transform 0.35s, opacity 0.35s';
+                toast.style.transform = 'translateY(18px)';
+                toast.style.opacity = '0';
+            }, 2600);
+            setTimeout(()=> document.body.removeChild(toast), 3100);
+        }
 
-        videos.forEach(v => observer.observe(v));
-    </script>
+    })();
+
+    // Prevent background scrolling for video autoplay issues on mobile (minor)
+    document.addEventListener('touchmove', function(){}, {passive:true});
+</script>
 </body>
 </html>
