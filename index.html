@@ -14,13 +14,13 @@
         }
 
         :root{
-            --bg: #0f1113;            /* main page background */
-            --panel: #141618;         /* cards and sections */
-            --muted: #bfc5c8;         /* muted text */
-            --accent: #90caf9;        /* accent color */
-            --cta-bg: #ffffff;        /* CTA (light) */
-            --cta-color: #0f1113;
-            --glass: rgba(255,255,255,0.04);
+            --bg: #ffffff;           /* main background white */
+            --panel: #f7f8fa;        /* soft card background */
+            --muted: #555;           /* muted dark text */
+            --accent: #0078ff;       /* blue accent */
+            --cta-bg: #0078ff;       /* CTA button color */
+            --cta-color: #ffffff;    /* CTA text color */
+            --glass: rgba(0,0,0,0.04);
         }
 
         body {
@@ -394,6 +394,58 @@
             .nav-links { margin-top: 6px; }
             .industry-grid { grid-template-columns: 1fr; }
             .modal-panel { padding: 16px; border-radius: 10px; }
+        }
+        /* Light mode overrides */
+        body {
+            background-color: var(--bg);
+            color: #222;
+        }
+        
+        .section {
+            background: var(--bg);
+        }
+        
+        h1, h2, h3, h4 {
+            color: #111;
+        }
+        
+        p { color: var(--muted); }
+        
+        .feature-card, .industry-card, details {
+            background: var(--panel);
+            border: 1px solid rgba(0,0,0,0.06);
+        }
+        
+        .feature-card h3, .industry-card h4 {
+            color: var(--accent);
+        }
+        
+        /* Header & Footer remain dark */
+        header {
+            background: #0f1113;
+            color: #fff;
+            border-bottom: none;
+        }
+        .nav-links a { color: #eaeaea; }
+        .nav-links a:hover { color: var(--accent); }
+        
+        footer {
+            background: #0f1113;
+            color: #ddd;
+            border-top: none;
+        }
+        footer a { color: #bfc5c8; }
+        footer a:hover { color: var(--accent); }
+        .cta-btn {
+            background: var(--cta-bg);
+            color: var(--cta-color);
+        }
+        .cta-btn:hover {
+            background: #005fcb;
+            color: #fff;
+        }
+        header {
+            background: linear-gradient(180deg, #0f1113 0%, #1c1e22 100%) !important;
         }
 
     </style>
@@ -858,3 +910,4 @@
 </script>
 </body>
 </html>
+
