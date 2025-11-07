@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -447,19 +448,184 @@
         header {
             background: linear-gradient(180deg, #0f1113 0%, #1c1e22 100%) !important;
         }
+        /* --- New Dropdown Menu Styles --- */
+        .dropdown {
+            position: relative;
+            display: inline-block; /* allows the container to only be as wide as its content */
+        }
 
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%; /* Position right below the link */
+            left: 50%;
+            transform: translateX(-50%); /* Center the dropdown */
+            min-width: 600px; /* Wide enough for 3 columns */
+            background: #0f1113; /* Same background as header/footer */
+            box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-top: 3px solid var(--accent);
+            padding: 24px;
+            z-index: 1000;
+            text-align: left;
+            border-radius: 0 0 10px 10px;
+        }
+
+        /* Show the dropdown menu on hover */
+        .dropdown:hover .dropdown-content {
+            display: flex; /* Use flex to align the columns */
+        }
+
+        .dropdown-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            width: 100%;
+        }
+
+        .dropdown-column strong {
+            color: #fff;
+            font-size: 0.95rem;
+            display: block;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .dropdown-column a {
+            display: flex;
+            align-items: center;
+            color: #c5c5c5;
+            padding: 6px 0;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .dropdown-column a:hover {
+            color: var(--accent);
+        }
+
+        .dropdown-column .arrow {
+            margin-left: 8px;
+            font-size: 0.7rem;
+            color: var(--accent);
+        }
+
+        /* Mobile Responsiveness for Dropdowns (Hide the complex dropdown on small screens) */
+        @media (max-width: 992px) {
+            .dropdown-content {
+                min-width: auto;
+                padding: 15px;
+                left: 0;
+                transform: translateX(0);
+                position: static;
+                border: none;
+                box-shadow: none;
+                background: #1c1e22; /* Slightly different background for visibility */
+                border-radius: 0;
+            }
+            .dropdown-grid {
+                grid-template-columns: 1fr;
+            }
+            .dropdown-content { display: none !important; } /* Revert to JS/Hamburger logic for mobile */
+
+            /* Add a simple indicator for mobile navigation links that have a submenu */
+            .dropdown > a::after { content: ' ▼'; font-size: 0.7em; color: var(--accent); margin-left: 5px; }
+        }
+        /* In your <style> tag or CSS file */
+        .logo img{
+            /* Set a maximum width so it doesn't overflow its container */
+            max-width: 100px; 
+            /* Maintain the image's original proportions */
+            height: auto; 
+            /* Remove any space below the image */
+            display: block; 
+        }
     </style>
 </head>
 <body>
     <header>
         <nav>
-            <div class="logo">Consultheon</div>
+            <div class="logo">
+                <img src="C:\Users\Admin\Desktop\timepass\Consultheon.png" alt="Consultheon">
+            </div>
             <div class="nav-links">
-                <a href="#solution">Solutions</a>
-                <a href="#industries">Industries</a>
+                
+                <div class="dropdown">
+                    <a href="#solution">Solutions</a>
+                    <div class="dropdown-content">
+                        <div class="dropdown-grid">
+                            
+                            <div class="dropdown-column">
+                                <strong>Devices (Consultheon)</strong>
+                                <a href="#">Arc 5 Pro<span class="arrow">→</span></a>
+                                <a href="#">Navigator Z1 with Thermal<span class="arrow">→</span></a>
+                                <a href="#">Navigator 520<span class="arrow">→</span></a>
+                                <a href="#">Thermal Camera Module<span class="arrow">→</span></a>
+                                <a href="#">Accessories<span class="arrow">→</span></a>
+                                <a href="#">User Guides<span class="arrow">→</span></a>
+                            </div>
+                            
+                            <div class="dropdown-column">
+                                <strong>Software (Consultheon)</strong>
+                                <a href="#">Collaborate Teams 2<span class="arrow">→</span></a>
+                                <a href="#">Navigator Z1 with Thermal<span class="arrow">→</span></a>
+                                <a href="#">Consultheon AI<span class="arrow">→</span></a>
+                                <a href="#">Consultheon One<span class="arrow">→</span></a>
+                                <a href="#">Consultheon Cloud<span class="arrow">→</span></a>
+                                <a href="#">Ari Companion<span class="arrow">→</span></a>
+                            </div>
+                            
+                            <div class="dropdown-column">
+                                <strong>Services (Consultheon)</strong>
+                                <a href="#">Service Packs<span class="arrow">→</span></a>
+                                <a href="#">Navigator Z1 with Thermal<span class="arrow">→</span></a>
+                                <a href="#">Custom Training<span class="arrow">→</span></a>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="dropdown">
+                    <a href="#industries">Industries</a>
+                    <div class="dropdown-content" style="min-width: 750px;">
+                        <div class="dropdown-grid">
+                            
+                            <div class="dropdown-column">
+                                <strong>Industry Solutions</strong>
+                                <a href="#">Automotive<span class="arrow">→</span></a>
+                                <a href="#">Navigator Z1 with Thermal<span class="arrow">→</span></a>
+                                <a href="#">Oil & Gas<span class="arrow">→</span></a>
+                                <a href="#">Warehousing<span class="arrow">→</span></a>
+                                <a href="#">Manufacturing<span class="arrow">→</span></a>
+                                <a href="#">Healthcare<span class="arrow">→</span></a>
+                            </div>
+    
+                            <div class="dropdown-column">
+                                <strong>Partner Solutions</strong>
+                                <a href="#">Partner Solutions<span class="arrow">→</span></a>
+                                <a href="#">Navigator Z1 with Thermal<span class="arrow">→</span></a>
+                                <a href="#">Microsoft Power Apps<span class="arrow">→</span></a>
+                                <a href="#">Partner Portal<span class="arrow">→</span></a>
+                                <a href="#">App Marketplace<span class="arrow">→</span></a>
+                            </div>
+    
+                            <div class="dropdown-column">
+                                <strong>Consultheon Solutions</strong>
+                                <a href="#">Collaborate Teams 2<span class="arrow">→</span></a>
+                                <a href="#">Consultheon AI<span class="arrow">→</span></a>
+                                <a href="#">Consultheon Cloud<span class="arrow">→</span></a>
+                                <a href="#">Consultheon One<span class="arrow">→</span></a>
+                                <a href="#">Ari Companion<span class="arrow">→</span></a>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+    
                 <a href="#roi">ROI</a>
                 <a href="#faq">FAQ</a>
-                <!-- Contact now opens modal (not the anchor) -->
                 <a href="#" id="navContactBtn">Contact</a>
             </div>
         </nav>
