@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Consultheon – Intelligent Video & Industrial AI Solutions</title>
+    <!-- Use Poppins from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* ------------------- RESET & BASE ------------------- */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root{
+            --bg: #ffffff;           /* main background white */
+            --panel: #f7f8fa;        /* soft card background */
+            --muted: #555;           /* muted dark text */
+            --accent: #0078ff;       /* blue accent */
+            --cta-bg: #0078ff;       /* CTA button color */
+            --cta-color: #ffffff;    /* CTA text color */
+            --glass: rgba(0,0,0,0.04);
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background-color: var(--bg);
+            color: #222; /* Light mode default body text */
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        img, video {
+            max-width: 100%;
+            border-radius: 10px;
+            display: block;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.22s ease;
+        }
+
+        a:hover {
+            color: #cfeaff;
+        }
+
+        h1, h2, h3, h4 {
+            color: #111; /* Light mode default headings */
+            letter-spacing: 0.4px;
+        }
+
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 1.9rem; margin-bottom: 12px; }
+        p  { font-size: 1rem; margin-top: 8px; color: var(--muted); }
+
+        /* ------------------- LAYOUT HELPERS ------------------- */
+        .container {
+            width: 92%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section {
+            padding: 80px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.03); /* Light mode border */
+            background: var(--bg);
+        }
+
+        /* ------------------- HEADER ------------------- */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            /* Dark/Gradient Background for Header */
+            background: linear-gradient(180deg, #0f1113 0%, #1c1e22 100%);
+            backdrop-filter: blur(6px);
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 5%;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .logo svg { width: 30px; height: 30px; }
+
+        .nav-links a {
+            margin-left: 22px;
+            color: #eaeaea; /* Light color against dark header */
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* ------------------- HERO ------------------- */
+        .hero {
+            padding-top: 120px;
+            padding-bottom: 40px;
+        }
+
+        .hero-flex {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+        }
+
+        .hero-content {
+            flex: 1;
+            min-width: 40%;
+            color: #111; /* Text color in light mode body */
+        }
+
+        .hero h1 span {
+            color: var(--accent);
+        }
+
+        .hero p {
+            max-width: 640px;
+            margin: 12px 0 16px;
+            font-size: 1.05rem;
+            color: var(--muted);
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: var(--cta-bg);
+            color: var(--cta-color);
+            font-weight: 700;
+            padding: 12px 26px;
+            border-radius: 999px;
+            margin-top: 12px;
+            transition: background 0.2s ease, transform 0.12s ease;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.45);
+        }
+
+        .cta-btn:hover { 
+            transform: translateY(-3px); 
+            background: #005fcb; /* Slightly darker on hover */
+            color: var(--cta-color); 
+        }
+
+        /* ------------------- FEATURES ------------------- */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 28px;
+            margin-top: 28px;
+        }
+
+        .feature-card {
+            background: var(--panel);
+            padding: 22px;
+            border-radius: 14px;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            border: 1px solid rgba(0,0,0,0.06); /* Light mode border */
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 14px 40px rgba(0,0,0,0.1);
+        }
+
+        .feature-card h3 { color: var(--accent); margin-bottom: 8px; }
+
+        /* ------------------- INDUSTRIES ------------------- */
+        .industries { text-align: center; }
+
+        .industries h2 span {
+            background: var(--accent);
+            color: var(--cta-color);
+            padding: 4px 10px;
+            border-radius: 6px;
+        }
+
+        .industry-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+            margin-top: 28px;
+            justify-content: center;
+        }
+
+        .industry-card {
+            background: var(--panel);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.06); /* Light mode border */
+            transition: transform 0.22s ease, box-shadow 0.22s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .industry-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+        }
+
+        .industry-video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            background-color: #000;
+        }
+
+        .industry-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .industry-card h4 {
+            margin: 14px 16px 6px;
+            color: var(--accent);
+        }
+
+        .industry-card p {
+            margin: 0 16px 18px;
+            font-size: 0.95rem;
+            color: var(--muted);
+            flex-grow: 1;
+        }
+
+        /* ------------------- VIDEO SECTION ------------------- */
+        .video-section { text-align: center; }
+
+        .video-section video {
+            width: 100%;
+            border: 1px solid rgba(0,0,0,0.06);
+            margin-top: 20px;
+        }
+
+        /* ------------------- ROI ------------------- */
+        .two-col {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .two-col > div { flex: 1; min-width: 280px; }
+
+        ul { list-style: none; margin-top: 8px; }
+        ul li { margin: 6px 0; color: var(--muted); }
+        ul li:before {
+            content: "✓";
+            color: var(--accent);
+            font-weight: 700;
+            margin-right: 8px;
+        }
+
+
+        /* ------------------- FAQ ------------------- */
+        details {
+            background: var(--panel);
+            margin-top: 10px;
+            padding: 14px 18px;
+            border-radius: 10px;
+            border: 1px solid rgba(0,0,0,0.06);
+            transition: all 0.25s ease;
+        }
+
+        details:hover { border-color: var(--accent); }
+
+        summary { cursor: pointer; font-weight: 600; color: #111; }
+        details p { margin-top: 10px; color: var(--muted); font-size: 0.95rem; }
+
+        /* ------------------- CTA SECTION ------------------- */
+        .final-cta { text-align: center; margin-top: 30px; }
+        .final-cta .cta-btn { margin-right: 10px; }
+
+        /* ------------------- FOOTER ------------------- */
+        footer {
+            /* Dark Background for Footer */
+            background: #0f1113;
+            padding: 40px 0;
+            border-top: 1px solid rgba(255,255,255,0.02);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .footer-grid strong { display:block; color: #fff; margin-bottom: 8px; }
+        footer p, footer a { font-size: 0.9rem; color: #bfc5c8; } /* Light-colored text against dark footer */
+        footer a:hover { color: var(--accent); }
+
+        /* ------------------- MODALS ------------------- */
+        .modal {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(2,6,10,0.6);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.36s ease, visibility 0.36s ease;
+            z-index: 1100;
+        }
+        .modal.active { opacity: 1; visibility: visible; }
+
+        .modal-panel {
+            width: 96%;
+            max-width: 520px;
+            background: linear-gradient(180deg,#ffffff 0%, #f3f6f7 100%);
+            color: #111;
+            border-radius: 12px;
+            padding: 22px;
+            box-shadow: 0 18px 60px rgba(2,6,10,0.6);
+            transform: translateY(-28px) scale(0.99);
+            transition: transform 0.34s cubic-bezier(.2,.9,.3,1);
+        }
+        .modal.active .modal-panel { transform: translateY(0) scale(1); }
+
+        .modal-close {
+            position: absolute;
+            top: 18px;
+            right: 22px;
+            font-size: 20px;
+            color: #222;
+            cursor: pointer;
+            background: transparent;
+            border: none;
+        }
+
+        .modal h2 { margin-bottom: 8px; color: #0d1112; }
+
+        /* Form */
+        form { display:flex; flex-direction: column; gap:12px; }
+        input[type="text"], input[type="email"], textarea {
+            width:100%;
+            padding:10px 12px;
+            border-radius:8px;
+            border:1px solid rgba(0,0,0,0.08);
+            font-size: 1rem;
+            background: #fff;
+            color: #111;
+        }
+        textarea { resize: vertical; min-height: 96px; }
+        .form-row { display:flex; gap:10px; }
+        .btn-primary {
+            background: var(--accent);
+            color: var(--cta-color);
+            padding: 10px 14px;
+            border-radius: 8px;
+            border: none;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(14,30,50,0.12);
+            transition: background 0.2s;
+        }
+        .btn-primary:hover { background: #005fcb; }
+
+        .btn-secondary {
+            background: transparent;
+            color: #111;
+            border: 1px solid rgba(0,0,0,0.06);
+            padding: 10px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn-secondary:hover { background: #f0f0f0; }
+
+        .meta-muted { color: var(--muted); font-size: 0.95rem; }
+
+        /* success message box inside modal (after ajax) */
+        .success-box {
+            display: none;
+            background: #e8fbff;
+            color: #022434;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid rgba(0,0,0,0.06);
+            margin-top: 8px;
+        }
+        .success-box.show { display:block; }
+
+        /* --- Dropdown Menu Styles --- */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            min-width: 600px;
+            background: #0f1113;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-top: 3px solid var(--accent);
+            padding: 24px;
+            z-index: 1000;
+            text-align: left;
+            border-radius: 0 0 10px 10px;
+        }
+
+        /* Show the dropdown menu on hover */
+        .dropdown:hover .dropdown-content {
+            display: flex;
+        }
+
+        .dropdown-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            width: 100%;
+        }
+
+        .dropdown-column strong {
+            color: #fff;
+            font-size: 0.95rem;
+            display: block;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .dropdown-column a {
+            display: flex;
+            align-items: center;
+            color: #c5c5c5;
+            padding: 6px 0;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .dropdown-column a:hover {
+            color: var(--accent);
+        }
+
+        .dropdown-column .arrow {
+            margin-left: 8px;
+            font-size: 0.7rem;
+            color: var(--accent);
+        }
+        .logo img{
+            max-width: 100px; 
+            height: auto; 
+            display: block; 
+        }
+
+        /* ------------------- MOBILE RESPONSIVENESS ------------------- */
+        @media (max-width: 992px) {
+            .industry-grid { grid-template-columns: repeat(2, 1fr); }
+            .hero-flex { flex-direction: column; text-align: center; }
+            .hero-video-wrapper { 
+                /* To make the video responsive on mobile */
+                width: 100%; 
+                padding-bottom: 56.25%; 
+                height: 0; 
+                margin-bottom: 24px; 
+            }
+            .hero-video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+
+            /* Mobile navigation overrides */
+            .nav-links {
+                display: none; /* Hide standard nav links on smaller screens for simplicity */
+                flex-direction: column;
+                width: 100%;
+                background: #1c1e22;
+                padding: 10px 0;
+            }
+            .nav-links.active {
+                display: flex;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+            }
+            .nav-links a {
+                margin: 5px 20px;
+                padding: 8px 0;
+                border-bottom: 1px solid rgba(255,255,255,0.05);
+            }
+            .nav-links a:last-child {
+                border-bottom: none;
+            }
+
+            /* Hide complex dropdown on mobile */
+            .dropdown-content {
+                display: none !important;
+            }
+            /* Show a mobile menu button */
+            .menu-toggle {
+                display: block;
+                color: #fff;
+                font-size: 24px;
+                cursor: pointer;
+            }
+
+            /* Add a simple indicator for mobile navigation links that have a submenu */
+            .dropdown > a::after { content: ' ▼'; font-size: 0.7em; color: var(--accent); margin-left: 5px; }
+
+            .hero-content h1 { font-size: 2rem; }
+        }
+
+        @media (max-width: 600px) {
+            nav { flex-direction: row; gap: 0; padding: 12px 4%; } /* Header stays horizontal on small mobile */
+            .industry-grid { grid-template-columns: 1fr; }
+            .modal-panel { padding: 16px; border-radius: 10px; }
+            .form-row { flex-direction: column; gap: 12px; }
+            .hero-flex { text-align: left; }
+        }
+        /* Hidden by default */
+        .menu-toggle { display: none; } 
+    </style>
+</head>
+<body>
+    <!-- Header: Dark Background (Stays dark across all screen sizes) -->
+    <header>
+        <nav class="container">
+            <!-- Logo -->
+            <a href="#" class="logo">
+                <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L2 21h20L12 2zm0 18L5.75 8.5h12.5L12 20zM11 12h2v4h-2v-4z"/>
+                </svg>
+                CONSULTHEON
+            </a>
+
+            <!-- Navigation Links -->
+            <div class="nav-links" id="navLinks">
+                <a href="#features">Features</a>
+                <!-- Dropdown Menu (for desktop) -->
+                <div class="dropdown">
+                    <a href="#">Solutions</a>
+                    <div class="dropdown-content">
+                        <div class="dropdown-grid">
+                            <div class="dropdown-column">
+                                <strong>Industrial AI</strong>
+                                <a href="#">Video Analytics <span class="arrow">→</span></a>
+                                <a href="#">Predictive Maintenance <span class="arrow">→</span></a>
+                                <a href="#">Quality Inspection <span class="arrow">→</span></a>
+                            </div>
+                            <div class="dropdown-column">
+                                <strong>Digital Transformation</strong>
+                                <a href="#">Cloud Migration <span class="arrow">→</span></a>
+                                <a href="#">IoT Integration <span class="arrow">→</span></a>
+                                <a href="#">Process Automation <span class="arrow">→</span></a>
+                            </div>
+                            <div class="dropdown-column">
+                                <strong>By Industry</strong>
+                                <a href="#industries">Manufacturing <span class="arrow">→</span></a>
+                                <a href="#industries">Energy & Utilities <span class="arrow">→</span></a>
+                                <a href="#industries">Logistics <span class="arrow">→</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#roi">ROI</a>
+                <a href="#faq">FAQ</a>
+                <a href="#" class="cta-btn" onclick="openModal(); return false;">Contact Us</a>
+            </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <div class="menu-toggle" id="menuToggle">☰</div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- HERO Section: Light Background -->
+        <section class="section hero">
+            <div class="container">
+                <div class="hero-flex">
+                    <div class="hero-content">
+                        <h1>Intelligent Video & <br> Industrial <span>AI Solutions</span></h1>
+                        <p>Leverage the power of vision to transform your industrial operations. Our AI solutions deliver real-time insights, boost safety, and minimize downtime in complex environments.</p>
+                        <a href="#features" class="cta-btn">Explore Features</a>
+                    </div>
+                    <div class="hero-video-wrapper" style="flex: 1;">
+                        <!-- Placeholder for Hero Video/Image -->
+                        <img src="https://placehold.co/600x338/f0f0f0/333?text=Industrial+AI+Showcase" alt="Industrial AI Showcase Placeholder" class="hero-video"/>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURES Section: Light Background -->
+        <section class="section" id="features">
+            <div class="container">
+                <h2 style="text-align: center;">Core Capabilities</h2>
+                <div class="features">
+                    <div class="feature-card">
+                        <h3>Real-time Anomaly Detection</h3>
+                        <p>Instantly spot deviations in process, quality, or safety compliance to prevent costly mistakes before they happen.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Predictive Maintenance</h3>
+                        <p>Analyze equipment health via vision data to predict failures, moving maintenance from reactive to proactive.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Automated Quality Control</h3>
+                        <p>Use high-speed visual inspection to ensure every product meets stringent quality standards, reducing waste.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Worker Safety Monitoring</h3>
+                        <p>Ensure adherence to PPE rules and detect unsafe acts or restricted area breaches in real-time for immediate intervention.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- INDUSTRIES Section: Light Background -->
+        <section class="section" id="industries">
+            <div class="container">
+                <h2>Industries We <span>Transform</span></h2>
+                <p style="max-width: 800px; margin: 12px auto 28px; font-size: 1.05rem;">Our vision-based AI is tailored to the unique operational challenges of heavy and complex industries.</p>
+                <div class="industry-grid">
+                    <div class="industry-card">
+                        <div class="industry-video-wrapper">
+                            <img src="https://placehold.co/400x225/e0e0e0/333?text=Manufacturing+Plant" alt="Manufacturing Plant Placeholder" class="industry-video"/>
+                        </div>
+                        <h4>Manufacturing</h4>
+                        <p>Streamlining assembly line quality control and defect detection at speeds human eyes cannot match.</p>
+                    </div>
+                    <div class="industry-card">
+                        <div class="industry-video-wrapper">
+                            <img src="https://placehold.co/400x225/e0e0e0/333?text=Energy+Pipeline" alt="Energy Pipeline Placeholder" class="industry-video"/>
+                        </div>
+                        <h4>Energy & Utilities</h4>
+                        <p>Monitoring critical infrastructure integrity and identifying environmental compliance risks remotely.</p>
+                    </div>
+                    <div class="industry-card">
+                        <div class="industry-video-wrapper">
+                            <img src="https://placehold.co/400x225/e0e0e0/333?text=Logistics+Warehouse" alt="Logistics Warehouse Placeholder" class="industry-video"/>
+                        </div>
+                        <h4>Logistics & Warehouse</h4>
+                        <p>Optimizing flow, tracking inventory, and ensuring correct loading/unloading procedures in large facilities.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ROI Section: Light Background -->
+        <section class="section" id="roi">
+            <div class="container">
+                <h2 style="text-align: center;">Quantifiable <span>Return on Investment</span></h2>
+                <div class="two-col">
+                    <div>
+                        <h3>The Consultheon Difference</h3>
+                        <p>We don't just sell software; we deliver measurable business outcomes. Our projects are designed to pay for themselves within 12-18 months through direct cost savings and operational efficiency.</p>
+                        <a href="#" class="cta-btn" onclick="openModal(); return false;">Calculate Your ROI</a>
+                    </div>
+                    <div>
+                        <h3>Key Benefits Achieved</h3>
+                        <ul>
+                            <li>Reduced operational accidents by **40%** through proactive safety warnings.</li>
+                            <li>Decreased product defects by **25%** using automated inspection.</li>
+                            <li>Lowered equipment downtime by **20%** with predictive diagnostics.</li>
+                            <li>Increased line throughput by **15%** by identifying bottlenecks.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section: Light Background -->
+        <section class="section" id="faq">
+            <div class="container">
+                <h2 style="text-align: center;">Frequently Asked Questions</h2>
+                <div style="max-width: 800px; margin: auto;">
+                    <details open>
+                        <summary>Is your solution compatible with our existing camera infrastructure?</summary>
+                        <p>Yes, Consultheon's AI layer is hardware-agnostic. We can integrate with virtually any IP camera, CCTV system, or industrial vision setup you currently use, minimizing upfront costs.</p>
+                    </details>
+                    <details>
+                        <summary>How long does a typical deployment take?</summary>
+                        <p>A pilot program typically takes 4-6 weeks, covering setup, data ingestion, and initial model training. Full-scale deployment and integration usually follow over the next 2-3 months, depending on complexity.</p>
+                    </details>
+                    <details>
+                        <summary>What kind of technical expertise is required to manage the system?</summary>
+                        <p>Our platform is designed for operational teams. While we provide comprehensive training, the day-to-day management requires minimal technical expertise, focusing instead on actioning the alerts generated by the AI.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA Section: Light Background -->
+        <section class="section" style="padding: 40px 0;">
+            <div class="container final-cta">
+                <h2>Ready to Transform Your Operations?</h2>
+                <p class="meta-muted" style="max-width: 600px; margin: 10px auto 20px;">Schedule a free consultation to see how Industrial AI can deliver immediate value in your specific environment.</p>
+                <a href="#" class="cta-btn" onclick="openModal(); return false;">Book a Demo</a>
+                <a href="#roi" class="cta-btn" style="background: #ccc; color: #111; box-shadow: none;">Download Case Study</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer: Dark Background (Stays dark across all screen sizes) -->
+    <footer>
+        <div class="container footer-grid">
+            <div>
+                <strong>CONSULTHEON</strong>
+                <p style="margin-top: 10px;">Intelligent Video & Industrial AI</p>
+                <p>&copy; 2024 Consultheon, Inc.</p>
+            </div>
+            <div>
+                <strong>Solutions</strong>
+                <a href="#">Video Analytics</a>
+                <a href="#">Predictive Maintenance</a>
+                <a href="#">Quality Inspection</a>
+                <a href="#">Worker Safety</a>
+            </div>
+            <div>
+                <strong>Company</strong>
+                <a href="#features">Features</a>
+                <a href="#roi">ROI Calculator</a>
+                <a href="#faq">FAQ</a>
+                <a href="#" onclick="openModal(); return false;">Careers</a>
+            </div>
+            <div>
+                <strong>Contact</strong>
+                <p>123 AI Parkway, Suite 400</p>
+                <p>New York, NY 10001</p>
+                <a href="mailto:info@consultheon.com">info@consultheon.com</a>
+                <a href="tel:+15551234567">+1 (555) 123-4567</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Contact Modal -->
+    <div id="contactModal" class="modal">
+        <div class="modal-panel" style="position: relative;">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            <h2>Get In Touch</h2>
+            <p class="meta-muted">Tell us about your industrial challenge and we'll show you how AI can solve it.</p>
+            <form id="contactForm">
+                <div class="form-row">
+                    <input type="text" id="name" placeholder="Full Name" required>
+                    <input type="email" id="email" placeholder="Work Email" required>
+                </div>
+                <input type="text" id="company" placeholder="Company Name" required>
+                <textarea id="message" placeholder="Your specific needs or questions..." required></textarea>
+                <button type="submit" class="btn-primary" id="submitBtn">Send Inquiry</button>
+                <div id="successBox" class="success-box">
+                    Thank you! Your inquiry has been sent. We will respond within 24 hours.
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // --- Modal Functionality ---
+        const modal = document.getElementById('contactModal');
+        const form = document.getElementById('contactForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const successBox = document.getElementById('successBox');
+
+        function openModal() {
+            modal.classList.add('active');
+            // Reset state
+            successBox.classList.remove('show');
+            form.reset();
+            modal.querySelector('.modal-panel').focus();
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+        }
+
+        // Close modal when clicking outside of the panel
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // --- Mobile Menu Toggle ---
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        if (menuToggle) {
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+            // Close mobile menu when a link is clicked
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                    }
+                });
+            });
+        }
+        
+        // --- Form Submission Simulation ---
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const originalText = submitBtn.textContent;
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+
+            // Simulate an API call
+            setTimeout(() => {
+                // On success:
+                successBox.classList.add('show');
+                form.reset();
+                showFloatingConfirmation('Inquiry Sent Successfully!');
+
+                // Restore button state
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+
+            }, 1500); // 1.5 second delay
+        });
+
+        function showFloatingConfirmation(text) {
+            // create small toast
+            const toast = document.createElement('div');
+            toast.style.position = 'fixed';
+            toast.style.right = '18px';
+            toast.style.bottom = '18px';
+            toast.style.background = '#0078ff';
+            toast.style.color = '#fff';
+            toast.style.padding = '12px 14px';
+            toast.style.borderRadius = '10px';
+            toast.style.boxShadow = '0 12px 30px rgba(0,0,0,0.25)';
+            toast.style.zIndex = 1300;
+            toast.style.fontWeight = 600;
+            toast.textContent = text;
+            document.body.appendChild(toast);
+            setTimeout(()=> {
+                toast.style.transition = 'transform 0.35s, opacity 0.35s';
+                toast.style.transform = 'translateY(18px)';
+                toast.style.opacity = '0';
+            }, 2600);
+            setTimeout(()=> document.body.removeChild(toast), 3100);
+        }
+        
+        // Show/hide mobile menu toggle based on screen size
+        function checkMobileNav() {
+            if (window.innerWidth <= 992) {
+                menuToggle.style.display = 'block';
+                navLinks.style.display = 'none'; // Ensure links are hidden initially on mobile
+            } else {
+                menuToggle.style.display = 'none';
+                navLinks.style.display = 'flex'; // Restore desktop display (handled by flex parent)
+                navLinks.classList.remove('active');
+            }
+        }
+        window.addEventListener('resize', checkMobileNav);
+        window.addEventListener('load', checkMobileNav);
+    </script>
+</body>
+</html>
