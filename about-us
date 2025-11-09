@@ -542,51 +542,89 @@
 <body>
     <!-- Header: Dark Background (Stays dark across all screen sizes) -->
     <header>
-        <nav class="container">
-            <!-- Logo -->
-            <a href="#" class="logo">
-                <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 2L2 21h20L12 2zm0 18L5.75 8.5h12.5L12 20zM11 12h2v4h-2v-4z"/>
-                </svg>
-                CONSULTHEON
-            </a>
-
-            <!-- Navigation Links -->
-            <div class="nav-links" id="navLinks">
-                <a href="#features">Features</a>
-                <!-- Dropdown Menu (for desktop) -->
+        <nav>
+            <div class="logo">
+                <img src="Consultheon.png" alt="Consultheon">
+            </div>
+            <div class="nav-links">
+                
                 <div class="dropdown">
-                    <a href="#">Solutions</a>
+                    <a href="#solution">Solutions</a>
                     <div class="dropdown-content">
                         <div class="dropdown-grid">
+                            
                             <div class="dropdown-column">
-                                <strong>Industrial AI</strong>
-                                <a href="#">Video Analytics <span class="arrow">→</span></a>
-                                <a href="#">Predictive Maintenance <span class="arrow">→</span></a>
-                                <a href="#">Quality Inspection <span class="arrow">→</span></a>
+                                <strong>Devices (Consultheon)</strong>
+                                <a href="#">Arc 5 Pro<span class="arrow">→</span></a>
+                                <a href="#">Navigator Z1 with Thermal<span class="arrow">→</span></a>
+                                <a href="#">Navigator 520<span class="arrow">→</span></a>
+                                <a href="#">Thermal Camera Module<span class="arrow">→</span></a>
+                                <a href="#">Accessories<span class="arrow">→</span></a>
+                                <a href="#">User Guides<span class="arrow">→</span></a>
                             </div>
+                            
                             <div class="dropdown-column">
-                                <strong>Digital Transformation</strong>
-                                <a href="#">Cloud Migration <span class="arrow">→</span></a>
-                                <a href="#">IoT Integration <span class="arrow">→</span></a>
-                                <a href="#">Process Automation <span class="arrow">→</span></a>
+                                <strong>Software (Consultheon)</strong>
+                                <a href="#">Collaborate Teams 2<span class="arrow">→</span></a>
+                                <a href="#">Navigator Z1 with Thermal<span class="arrow">→</span></a>
+                                <a href="#">Consultheon AI<span class="arrow">→</span></a>
+                                <a href="#">Consultheon One<span class="arrow">→</span></a>
+                                <a href="#">Consultheon Cloud<span class="arrow">→</span></a>
+                                <a href="#">Ari Companion<span class="arrow">→</span></a>
                             </div>
+                            
                             <div class="dropdown-column">
-                                <strong>By Industry</strong>
-                                <a href="#industries">Manufacturing <span class="arrow">→</span></a>
-                                <a href="#industries">Energy & Utilities <span class="arrow">→</span></a>
-                                <a href="#industries">Logistics <span class="arrow">→</span></a>
+                                <strong>Services (Consultheon)</strong>
+                                <a href="#">Service Packs<span class="arrow">→</span></a>
+                                <a href="#">Navigator Z1 with Thermal<span class="arrow">→</span></a>
+                                <a href="#">Custom Training<span class="arrow">→</span></a>
                             </div>
+                            
                         </div>
                     </div>
                 </div>
+    
+                <div class="dropdown">
+                    <a href="#industries">Industries</a>
+                    <div class="dropdown-content" style="min-width: 750px;">
+                        <div class="dropdown-grid">
+                            
+                            <div class="dropdown-column">
+                                <strong>Industry Solutions</strong>
+                                <a href="#">Automotive<span class="arrow">→</span></a>
+                                <a href="#">Navigator Z1 with Thermal<span class="arrow">→</span></a>
+                                <a href="#">Oil & Gas<span class="arrow">→</span></a>
+                                <a href="#">Warehousing<span class="arrow">→</span></a>
+                                <a href="#">Manufacturing<span class="arrow">→</span></a>
+                                <a href="#">Healthcare<span class="arrow">→</span></a>
+                            </div>
+    
+                            <div class="dropdown-column">
+                                <strong>Partner Solutions</strong>
+                                <a href="#">Partner Solutions<span class="arrow">→</span></a>
+                                <a href="#">Navigator Z1 with Thermal<span class="arrow">→</span></a>
+                                <a href="#">Microsoft Power Apps<span class="arrow">→</span></a>
+                                <a href="#">Partner Portal<span class="arrow">→</span></a>
+                                <a href="#">App Marketplace<span class="arrow">→</span></a>
+                            </div>
+    
+                            <div class="dropdown-column">
+                                <strong>Consultheon Solutions</strong>
+                                <a href="#">Collaborate Teams 2<span class="arrow">→</span></a>
+                                <a href="#">Consultheon AI<span class="arrow">→</span></a>
+                                <a href="#">Consultheon Cloud<span class="arrow">→</span></a>
+                                <a href="#">Consultheon One<span class="arrow">→</span></a>
+                                <a href="#">Ari Companion<span class="arrow">→</span></a>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+    
                 <a href="#roi">ROI</a>
                 <a href="#faq">FAQ</a>
-                <a href="#" class="cta-btn" onclick="openModal(); return false;">Contact Us</a>
+                <a href="#" id="navContactBtn">Contact</a>
             </div>
-            
-            <!-- Mobile Menu Toggle -->
-            <div class="menu-toggle" id="menuToggle">☰</div>
         </nav>
     </header>
 
